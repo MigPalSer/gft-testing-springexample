@@ -18,4 +18,10 @@ SpringApplication.run(HolamundospringApplication.class, args);
 public String hello(@RequestParam(value = "name", defaultValue = "Guorl") String name) {
 return String.format("Hello %s!", name);
 }
+
+@GetMapping("/")
+public String root() {
+return "Bienvenido a este proyecto de prueba";
+}
+
 }
