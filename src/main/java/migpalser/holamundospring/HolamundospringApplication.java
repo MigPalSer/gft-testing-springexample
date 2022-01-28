@@ -24,4 +24,13 @@ public String root() {
 return "Bienvenido a este proyecto de prueba";
 }
 
+
+@GetMapping("/add")
+public String add(@RequestParam(value = "x", defaultValue = "0") String x,
+		@RequestParam(value = "y", defaultValue = "0") String y) {
+	int ix=Integer.parseInt(x);
+	int iy=Integer.parseInt(y);
+return String.valueOf(ix+iy);
+}
+
 }
