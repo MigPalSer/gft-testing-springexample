@@ -45,5 +45,11 @@ class RandomPortServerTest {
 		.isEqualTo("3");
     }
     
+    @Test
+    void canAddFractions(@Autowired TestRestTemplate restTemplate) {
+        String s=restTemplate.getForObject( "/add?x=1.1&y=2.2", String.class);
+        assertThat(s)
+		.isEqualTo("3.3");
+    }
 
 }
