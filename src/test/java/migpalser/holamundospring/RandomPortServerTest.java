@@ -38,5 +38,12 @@ class RandomPortServerTest {
 		.isEqualTo("Hello pepe!");
     }
     
+    @Test
+    void canAdd(@Autowired TestRestTemplate restTemplate) {
+        String s=restTemplate.getForObject( "/add?x=1&y=2", String.class);
+        assertThat(s)
+		.isEqualTo("3");
+    }
+    
 
 }
