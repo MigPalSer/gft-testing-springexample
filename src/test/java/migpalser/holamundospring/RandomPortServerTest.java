@@ -1,6 +1,8 @@
 package migpalser.holamundospring;
 
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.ValueSource;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.reactive.AutoConfigureWebTestClient;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -50,6 +52,16 @@ class RandomPortServerTest {
         String s=restTemplate.getForObject( "/add?x=1.1&y=2.2", String.class);
         assertThat(s)
 		.isEqualTo("3.3");
+    }
+    
+    @ParameterizedTest
+    @ValueSource(strings = {"Paco", "Juan", "Ñu", "sHurPriMIkOh_69", "Ácido"})
+    void displayName(String name, @Autowired TestRestTemplate restTemplate) {
+    	String url="/hello?name="+name;
+    	String result="Hello "+name+"!";
+    	 String s=restTemplate.getForObject(url, String.class);
+         assertThat(s)
+ 		.isEqualTo(result);
     }
 
 }
