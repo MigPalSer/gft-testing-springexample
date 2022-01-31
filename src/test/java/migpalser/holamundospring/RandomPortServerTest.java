@@ -67,8 +67,8 @@ class RandomPortServerTest {
 
     @ParameterizedTest
     @CsvFileSource(resources = "/sumtest.csv")
-    void csvSumTest(double a, double b, double result, @Autowired TestRestTemplate restTemplate) {
-    	String url="/add?a="+a+"&b="+b;
+    void csvSumTest(String a, String b, String result, @Autowired TestRestTemplate restTemplate) {
+    	String url="/add?x="+a+"&y="+b;
     	 String s=restTemplate.getForObject(url, String.class);
          assertThat(s)
  		.isEqualTo(result);
