@@ -2,6 +2,7 @@ package migpalser.holamundospring;
 
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.CsvFileSource;
 import org.junit.jupiter.params.provider.ValueSource;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.reactive.AutoConfigureWebTestClient;
@@ -64,4 +65,12 @@ class RandomPortServerTest {
  		.isEqualTo(result);
     }
 
+    @ParameterizedTest
+    @CsvFileSource(resources = "/sumtest.csv")
+    void csvSumTest(double a, double b, double result, @Autowired TestRestTemplate restTemplate) {
+    	String url="/add?a="+a+"&b="+b;
+    	 String s=restTemplate.getForObject(url, String.class);
+         assertThat(s)
+ 		.isEqualTo(result);
+    }
 }
