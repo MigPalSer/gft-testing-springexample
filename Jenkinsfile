@@ -50,7 +50,7 @@ pipeline {
 
 post {
         always {
-            junit 'build/reports/**/*.xml'
+            jacoco 'build/reports/**/*.xml'
         }
     }
 
