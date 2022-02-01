@@ -42,6 +42,19 @@ public class HolamundospringApplication {
 		return result;
 	}
 
+	@GetMapping("/sust")
+	public String sust(@RequestParam(value = "x", defaultValue = "0") String x,
+			@RequestParam(value = "y", defaultValue = "0") String y) {
+		double dx = Double.parseDouble(x);
+		BigDecimal bx=BigDecimal.valueOf(dx);
+		double dy = Double.parseDouble(y);
+		BigDecimal by=BigDecimal.valueOf(dy);
+		
+		String result=FormatUtils.fmtBigDecimal(bx.subtract(by));
+		
+		return result;
+	}
+	
 	@GetMapping("/mult")
 	public String mult(@RequestParam(value = "x", defaultValue = "0") String x,
 			@RequestParam(value = "y", defaultValue = "0") String y) {
