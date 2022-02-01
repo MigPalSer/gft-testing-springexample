@@ -2,6 +2,8 @@ package migpalser.holamundospring;
 
 import java.math.BigDecimal;
 
+import javax.annotation.Generated;
+
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -12,6 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class HolamundospringApplication {
 
+	@Generated(value="org.springframework.boot")
 	public static void main(String[] args) {
 		SpringApplication.run(HolamundospringApplication.class, args);
 	}

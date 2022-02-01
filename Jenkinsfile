@@ -50,7 +50,7 @@ pipeline {
 
 post {
         always {
-            jacoco 'build/reports/**/*.xml'
+            //jacoco 'build/reports/**/*.xml'
         }
     }
 
