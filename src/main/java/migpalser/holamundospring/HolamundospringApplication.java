@@ -68,4 +68,23 @@ public class HolamundospringApplication {
 		return result;
 	}
 	
+	@GetMapping("/div")
+	public String div(@RequestParam(value = "x", defaultValue = "0") String x,
+			@RequestParam(value = "y", defaultValue = "0") String y) {
+		double dx = Double.parseDouble(x);
+		BigDecimal bx=BigDecimal.valueOf(dx);
+		double dy = Double.parseDouble(y);
+		BigDecimal by=BigDecimal.valueOf(dy);
+		
+		if(dy==0.0) {
+			return "error";
+		}else {
+			String result=FormatUtils.fmtBigDecimal(bx.divide(by));
+			
+			return result;
+		}
+		
+		
+	}
+	
 }
