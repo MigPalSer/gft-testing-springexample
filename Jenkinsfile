@@ -28,6 +28,21 @@ pipeline {
             }
         }
 
+ stage('gradle assemble') {
+            steps {
+            
+            	sh "./gradlew assemble"
+		
+            }
+        }
+
+ stage('gradle test') {
+            steps {
+            
+            	sh "./gradlew test"
+		
+            }
+        }
 
 
     }
