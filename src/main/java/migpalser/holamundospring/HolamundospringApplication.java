@@ -1,6 +1,7 @@
 package migpalser.holamundospring;
 
 import java.math.BigDecimal;
+import java.math.MathContext;
 
 import javax.annotation.Generated;
 
@@ -83,6 +84,23 @@ public class HolamundospringApplication {
 			
 			return result;
 		}
+		
+		
+	}
+	
+	@GetMapping("/raiz")
+	public String raiz(@RequestParam(value = "x", defaultValue = "0") String x) {
+		double dx = Double.parseDouble(x);
+		BigDecimal bx=BigDecimal.valueOf(dx);
+		
+		try {
+			bx=bx.sqrt(MathContext.DECIMAL64);
+			String result=FormatUtils.fmtBigDecimal(bx);
+			return result;
+		} catch (ArithmeticException e) {
+			return "error";
+		}
+		
 		
 		
 	}
