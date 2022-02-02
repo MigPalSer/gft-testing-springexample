@@ -3,11 +3,14 @@ plugins {
 	id 'io.spring.dependency-management' version '1.0.11.RELEASE'
 	id 'java'
 	id 'jacoco'
+	id 'info.solidsoft.pitest' version '1.7.0'
 }
 
 group = 'migpalser'
 version = '0.0.1-SNAPSHOT'
 sourceCompatibility = '11'
+
+ext['junit-jupiter.version'] = '5.5.2'
 
 repositories {
 	mavenCentral()
