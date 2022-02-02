@@ -45,7 +45,14 @@ pipeline {
 		
         }
 
-
+stage('pitest') {
+            steps {
+            
+            	sh "./gradlew pitest"
+		
+            }
+		
+        }
     }
 
 post {

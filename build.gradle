@@ -31,4 +31,9 @@ jacocoTestReport {
 	reports {
 		xml.required = true
 	}
+	
+pitest {
+    junit5PluginVersion = '0.12'
+    outputFormats = ['XML', 'HTML']
+}
 } 
