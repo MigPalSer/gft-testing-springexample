@@ -4,6 +4,7 @@ plugins {
 	id 'java'
 	id 'jacoco'
 	id 'info.solidsoft.pitest' version '1.7.0'
+	id 'pmd'
 }
 
 group = 'migpalser'
@@ -35,5 +36,9 @@ jacocoTestReport {
 pitest {
     junit5PluginVersion = '0.12'
     outputFormats = ['XML', 'HTML']
+}
+pmd {
+	consoleOutput = true
+	ignoreFailures = true
 }
 } 
